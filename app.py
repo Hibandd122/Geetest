@@ -50,8 +50,8 @@ def get_image_bytes(url):
 @app.route("/solve", methods=["POST"])
 def solve():
     data = request.get_json()
-    bg_url = data["bg"]
-    puzzle_url = data["puzzle"]
+    bg_url = data["bg_url"]
+    puzzle_url = data["slice_url"]
 
     background = get_image_bytes(bg_url)
     puzzle_piece = get_image_bytes(puzzle_url)
@@ -62,4 +62,3 @@ def solve():
     # Làm tròn xuống 5 đơn vị
     distance = distance - (distance % 5) - 5
     return jsonify({"distance": distance})
-

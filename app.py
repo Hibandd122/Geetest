@@ -42,7 +42,7 @@ class SlideSolver:
         w = edge_puzzle_piece.shape[1]
         center_x = top_left[0] + w // 2
 
-        return center_x - 30
+        return center_x - 41
 
 def get_image_bytes(url):
     return requests.get(url).content
@@ -58,7 +58,4 @@ def solve():
 
     solver = SlideSolver(puzzle_piece, background)
     distance = solver.find_puzzle_piece_position()
-
-    # Làm tròn xuống 5 đơn vị
-    distance = distance - (distance % 5) - 5
     return jsonify({"distance": distance})
